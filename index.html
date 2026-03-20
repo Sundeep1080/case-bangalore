@@ -303,7 +303,7 @@ footer{background:white;border-top:1px solid #f0f0f0;padding:22px;text-align:cen
 
 <script>
 // ── CONFIG ──
-const API_KEY = "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"; // 👈 Replace PASTE_YOUR_KEY_HERE with your real key from console.anthropic.com
+const API_KEY = "sk-ant-api03-udzHD-o-b2AW02LjXjk5zpWe7o39-eNy6kgmIZTmJXgOuoA0qJx01rRFmTGJMHs5B1XVOBjqaerh6H-xq44mYQ-cJYoQQAA"; // 👈 Replace PASTE_YOUR_KEY_HERE with your real key from console.anthropic.com
 
 const LEVEL_ICONS = {"School Level":"🏫","District Level":"🏙️","State Level":"🌟","National Level":"🇮🇳","International Level":"🌍"};
 const CAT_CFG = {
@@ -494,9 +494,9 @@ async function callAPI(prompt) {
     },
     body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:8000,messages:[{role:'user',content:prompt}]})
   });
-  if(!res.ok) throw new Error(`HTTP ${res.status}`);
+  if(!res.ok){const ed=await res.json().catch(()=>({}));throw new Error('HTTP '+res.status+': '+(ed?.error?.message||'Check API key'));}
   const data = await res.json();
-  if(data.error) throw new Error(data.error.message);
+  if(data.error) throw new Error('API: '+data.error.message);
   const text = (data.content||[]).map(b=>b.text||'').join('').trim();
   const s=text.indexOf('['), e=text.lastIndexOf(']');
   if(s===-1||e===-1) throw new Error('Invalid JSON response');
@@ -570,7 +570,7 @@ async function doSearch() {
 
   if(total===0){
     document.getElementById('errorTitle').textContent='No events found';
-    document.getElementById('errorSub').textContent='Please check your API key in the HTML file and try again.';
+    document.getElementById('errorSub').textContent=e.message;
     document.getElementById('errorBox').style.display='block';
     return;
   }
