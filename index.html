@@ -4,17 +4,22 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>C.A.S.E — Cultural Academic Sports Events | Bangalore</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
   --pink:#db2777;--purple:#7c3aed;--green:#059669;
-  --bg:#fdfcf8;--white:#ffffff;--gray:#f7f7f7;
-  --text:#1a1a2e;--muted:#888;--border:#efefef;
+  --bg:#fdfcf8;--white:#fff;--border:#efefef;
+  --text:#1a1a2e;--muted:#777;
 }
 body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 10% 10%,rgba(219,39,119,0.05),transparent 50%),radial-gradient(ellipse at 90% 20%,rgba(124,58,237,0.05),transparent 50%),radial-gradient(ellipse at 50% 90%,rgba(5,150,105,0.05),transparent 50%);pointer-events:none;z-index:0;}
+body::before{content:'';position:fixed;inset:0;
+  background:radial-gradient(ellipse at 8% 8%,rgba(219,39,119,0.06),transparent 45%),
+             radial-gradient(ellipse at 92% 15%,rgba(124,58,237,0.06),transparent 45%),
+             radial-gradient(ellipse at 50% 92%,rgba(5,150,105,0.05),transparent 45%);
+  pointer-events:none;z-index:0;}
 .wrap{position:relative;z-index:1;}
+.container{max-width:1100px;margin:0 auto;padding:0 20px;}
 
 /* HEADER */
 .header{background:rgba(255,255,255,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:14px 32px;position:sticky;top:0;z-index:200;box-shadow:0 2px 20px rgba(0,0,0,0.05);}
@@ -23,138 +28,138 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .logo-icon{width:50px;height:50px;background:linear-gradient(135deg,#db2777,#7c3aed,#059669);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 18px rgba(124,58,237,0.3);}
 .logo-name{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;background:linear-gradient(90deg,#db2777,#7c3aed,#059669);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-1px;}
 .logo-sub{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
-.mission-tag{font-size:12px;color:var(--purple);font-style:italic;font-weight:600;text-align:right;}
-.mission-sub{font-size:10px;color:#bbb;margin-top:2px;}
+.mission-pill{background:linear-gradient(135deg,rgba(124,58,237,0.1),rgba(219,39,119,0.1));border:1px solid rgba(124,58,237,0.2);border-radius:20px;padding:6px 16px;font-size:12px;color:var(--purple);font-weight:600;font-style:italic;}
 
 /* HERO */
-.hero{text-align:center;padding:56px 20px 36px;max-width:1100px;margin:0 auto;}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#7c3aed,#db2777);color:white;border-radius:30px;padding:9px 24px;font-size:12px;font-weight:600;margin-bottom:24px;box-shadow:0 6px 20px rgba(124,58,237,0.3);letter-spacing:1px;text-transform:uppercase;}
-.hero-title{font-family:'Playfair Display',serif;font-size:clamp(30px,5.5vw,58px);font-weight:800;line-height:1.1;letter-spacing:-2px;margin-bottom:16px;}
-.hero-title .c{background:linear-gradient(135deg,#db2777,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.hero-title .a{background:linear-gradient(135deg,#7c3aed,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.hero-title .s{background:linear-gradient(135deg,#059669,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.hero-sub{color:var(--muted);font-size:15px;max-width:600px;margin:0 auto 40px;line-height:1.9;font-weight:400;}
+.hero{text-align:center;padding:56px 20px 36px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#7c3aed,#db2777);color:white;border-radius:30px;padding:9px 24px;font-size:12px;font-weight:700;margin-bottom:24px;box-shadow:0 6px 20px rgba(124,58,237,0.3);letter-spacing:1px;text-transform:uppercase;}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(28px,5.5vw,56px);font-weight:800;line-height:1.1;letter-spacing:-2px;margin-bottom:16px;}
+.grad-c{background:linear-gradient(135deg,#db2777,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.grad-a{background:linear-gradient(135deg,#7c3aed,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.grad-s{background:linear-gradient(135deg,#059669,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-sub{color:var(--muted);font-size:15px;max-width:620px;margin:0 auto 40px;line-height:1.9;}
+
+/* SETUP BOX - shown when no API key */
+.setup-box{background:white;border:2px solid rgba(124,58,237,0.2);border-radius:24px;padding:32px;max-width:700px;margin:0 auto 40px;box-shadow:0 8px 40px rgba(124,58,237,0.1);}
+.setup-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin-bottom:8px;color:var(--purple);}
+.setup-sub{color:var(--muted);font-size:14px;margin-bottom:24px;line-height:1.7;}
+.steps{display:flex;flex-direction:column;gap:16px;margin-bottom:24px;}
+.step{display:flex;align-items:flex-start;gap:14px;background:#f8f5ff;border-radius:14px;padding:14px 16px;}
+.step-num{width:30px;height:30px;background:linear-gradient(135deg,#7c3aed,#a78bfa);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:14px;flex-shrink:0;}
+.step-text{font-size:13px;color:var(--text);line-height:1.6;}
+.step-text a{color:var(--purple);font-weight:600;text-decoration:none;}
+.step-text a:hover{text-decoration:underline;}
+.step-text strong{color:var(--text);}
+.key-input-wrap{display:flex;gap:10px;flex-direction:column;}
+.key-input{width:100%;background:#f9f9f9;border:2px solid #e0e0e0;border-radius:12px;padding:13px 16px;font-size:14px;outline:none;font-family:'Inter',sans-serif;transition:border 0.2s;}
+.key-input:focus{border-color:var(--purple);}
+.key-btn{width:100%;background:linear-gradient(135deg,#7c3aed,#059669);border:none;border-radius:12px;padding:14px;color:white;font-family:'Playfair Display',serif;font-size:17px;font-weight:700;cursor:pointer;box-shadow:0 6px 20px rgba(124,58,237,0.3);transition:all 0.3s;}
+.key-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(124,58,237,0.4);}
+.free-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(5,150,105,0.1);border:1px solid rgba(5,150,105,0.25);border-radius:20px;padding:5px 14px;font-size:12px;color:#059669;font-weight:600;margin-bottom:16px;}
 
 /* PILLARS */
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:640px;margin:0 auto 48px;}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:660px;margin:0 auto 40px;}
 .pillar{background:white;border:2px solid var(--border);border-radius:22px;padding:22px 14px;text-align:center;cursor:pointer;transition:all 0.3s;box-shadow:0 3px 14px rgba(0,0,0,0.05);}
 .pillar:hover{transform:translateY(-3px);}
-.pillar.active-c{background:linear-gradient(135deg,#db2777,#f472b6);border-color:transparent;box-shadow:0 8px 28px rgba(219,39,119,0.35);}
-.pillar.active-a{background:linear-gradient(135deg,#7c3aed,#a78bfa);border-color:transparent;box-shadow:0 8px 28px rgba(124,58,237,0.35);}
-.pillar.active-s{background:linear-gradient(135deg,#059669,#34d399);border-color:transparent;box-shadow:0 8px 28px rgba(5,150,105,0.35);}
-.pillar-icon{font-size:30px;margin-bottom:8px;}
+.pillar.ac{background:linear-gradient(135deg,#db2777,#f472b6);border-color:transparent;box-shadow:0 8px 28px rgba(219,39,119,0.35);}
+.pillar.aa{background:linear-gradient(135deg,#7c3aed,#a78bfa);border-color:transparent;box-shadow:0 8px 28px rgba(124,58,237,0.35);}
+.pillar.as_{background:linear-gradient(135deg,#059669,#34d399);border-color:transparent;box-shadow:0 8px 28px rgba(5,150,105,0.35);}
+.pillar-icon{font-size:28px;margin-bottom:8px;}
 .pillar-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;margin-bottom:4px;}
-.pillar.active-c .pillar-name,.pillar.active-a .pillar-name,.pillar.active-s .pillar-name,.pillar.active-c .pillar-count,.pillar.active-a .pillar-count,.pillar.active-s .pillar-count{color:white;}
-.pillar-count{font-size:11px;color:#bbb;font-weight:500;}
+.pillar.ac .pillar-name,.pillar.aa .pillar-name,.pillar.as_ .pillar-name,
+.pillar.ac .pillar-count,.pillar.aa .pillar-count,.pillar.as_ .pillar-count{color:white;}
+.pillar-count{font-size:11px;color:#bbb;}
 
 /* SEARCH PANEL */
-.panel{background:rgba(255,255,255,0.97);border:1px solid rgba(0,0,0,0.07);border-radius:24px;padding:28px;max-width:1100px;margin:0 auto 28px;box-shadow:0 8px 48px rgba(0,0,0,0.07);position:relative;overflow:hidden;}
+.panel{background:rgba(255,255,255,0.97);border:1px solid rgba(0,0,0,0.07);border-radius:24px;padding:28px;margin-bottom:28px;box-shadow:0 8px 48px rgba(0,0,0,0.07);position:relative;overflow:hidden;}
 .panel::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#db2777,#7c3aed,#059669,#ffcc02,#ff6b35);}
 .filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:16px;}
-.field-label{font-size:10px;color:#aaa;letter-spacing:1px;text-transform:uppercase;margin-bottom:7px;font-weight:700;}
-select{width:100%;background:#f9f9f9;border:1.5px solid #ebebeb;border-radius:12px;padding:11px 14px;color:var(--text);font-size:13px;outline:none;cursor:pointer;font-family:'Inter',sans-serif;font-weight:500;transition:border 0.2s;appearance:none;}
+.fl{font-size:10px;color:#aaa;letter-spacing:1px;text-transform:uppercase;margin-bottom:7px;font-weight:700;}
+select{width:100%;background:#f9f9f9;border:1.5px solid #ebebeb;border-radius:12px;padding:11px 14px;color:var(--text);font-size:13px;outline:none;cursor:pointer;font-family:'Inter',sans-serif;font-weight:500;appearance:none;transition:border 0.2s;}
 select:focus{border-color:var(--purple);}
-.search-btn{width:100%;background:linear-gradient(135deg,#db2777,#7c3aed,#059669);border:none;border-radius:14px;padding:16px;color:white;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;cursor:pointer;box-shadow:0 6px 24px rgba(124,58,237,0.3);transition:all 0.3s;letter-spacing:0.3px;}
-.search-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(124,58,237,0.4);}
-.search-btn:disabled{background:#e5e5e5;color:#aaa;cursor:not-allowed;transform:none;box-shadow:none;}
+.sbtn{width:100%;background:linear-gradient(135deg,#db2777,#7c3aed,#059669);border:none;border-radius:14px;padding:16px;color:white;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;cursor:pointer;box-shadow:0 6px 24px rgba(124,58,237,0.3);transition:all 0.3s;}
+.sbtn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(124,58,237,0.4);}
+.sbtn:disabled{background:#e5e5e5;color:#aaa;cursor:not-allowed;transform:none;box-shadow:none;}
 
 /* CHIPS */
-.chips{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:24px;max-width:1100px;margin-left:auto;margin-right:auto;}
-.chip{padding:7px 14px;border-radius:20px;border:1.5px solid #e8e8e8;background:white;color:#888;font-size:11px;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif;}
-.chip:hover{transform:translateY(-1px);}
-.chip.on-c{background:linear-gradient(135deg,#db2777,#f472b6);border-color:transparent;color:white;box-shadow:0 4px 14px rgba(219,39,119,0.3);}
-.chip.on-a{background:linear-gradient(135deg,#7c3aed,#a78bfa);border-color:transparent;color:white;box-shadow:0 4px 14px rgba(124,58,237,0.3);}
-.chip.on-s{background:linear-gradient(135deg,#059669,#34d399);border-color:transparent;color:white;box-shadow:0 4px 14px rgba(5,150,105,0.3);}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:24px;}
+.chip{padding:7px 14px;border-radius:20px;border:1.5px solid #e8e8e8;background:white;color:#888;font-size:11px;font-weight:600;cursor:pointer;transition:all 0.2s;}
+.chip.cc{background:linear-gradient(135deg,#db2777,#f472b6);border-color:transparent;color:white;box-shadow:0 4px 14px rgba(219,39,119,0.3);}
+.chip.ca{background:linear-gradient(135deg,#7c3aed,#a78bfa);border-color:transparent;color:white;box-shadow:0 4px 14px rgba(124,58,237,0.3);}
+.chip.cs{background:linear-gradient(135deg,#059669,#34d399);border-color:transparent;color:white;box-shadow:0 4px 14px rgba(5,150,105,0.3);}
 
 /* LOADING */
 .loading{display:none;text-align:center;padding:70px 20px;}
 .loading.show{display:block;}
 .dots{display:flex;gap:10px;justify-content:center;margin-bottom:24px;}
 .dot{width:13px;height:13px;border-radius:50%;animation:bnc 1.2s ease-in-out infinite;}
-.dot:nth-child(1){background:#db2777;}
-.dot:nth-child(2){background:#7c3aed;animation-delay:0.2s;}
-.dot:nth-child(3){background:#059669;animation-delay:0.4s;}
+.d1{background:#db2777;} .d2{background:#7c3aed;animation-delay:.2s;} .d3{background:#059669;animation-delay:.4s;}
 @keyframes bnc{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-16px)}}
-.load-text{color:#888;font-size:15px;margin-bottom:10px;}
-.load-progress{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:12px;}
-.prog-item{font-size:12px;color:#ccc;transition:color 0.3s;}
-.prog-item.done{color:#059669;font-weight:600;}
-.prog-item.active{color:#7c3aed;font-weight:600;}
+.ltext{color:#888;font-size:15px;margin-bottom:12px;}
+.prog{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.pi{font-size:12px;color:#ccc;transition:color 0.3s;}
+.pi.done{color:#059669;font-weight:700;}
+.pi.act{color:#7c3aed;font-weight:700;}
 
-/* SUMMARY BAR */
-.summary{background:white;border-radius:16px;border:1px solid rgba(0,0,0,0.06);padding:16px 22px;max-width:1100px;margin:0 auto 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;box-shadow:0 3px 14px rgba(0,0,0,0.05);}
-.summary-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;}
-.summary-cats{display:flex;gap:8px;flex-wrap:wrap;}
-.sum-cat{border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;}
+/* SUMMARY */
+.summary{background:white;border-radius:16px;border:1px solid rgba(0,0,0,0.06);padding:16px 22px;margin-bottom:22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;box-shadow:0 3px 14px rgba(0,0,0,0.05);}
+.sum-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;}
+.sum-cats{display:flex;gap:8px;flex-wrap:wrap;}
+.sc{border-radius:20px;padding:4px 14px;font-size:12px;font-weight:600;}
 
-/* TAB BUTTONS */
-.tab-btns{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:1100px;margin:0 auto 20px;}
-.tab-btn{padding:13px;border-radius:14px;font-family:'Playfair Display',serif;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.3s;border:none;}
+/* TABS */
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px;}
+.tab{padding:13px;border-radius:14px;font-family:'Playfair Display',serif;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.3s;border:none;}
 
 /* RESULTS */
-.results-bar{max-width:1100px;margin:0 auto 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
-.results-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;}
-.results-count{color:white;border-radius:20px;padding:5px 18px;font-size:13px;font-weight:600;}
+.rbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:8px;}
+.rtitle{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;}
+.rcount{color:white;border-radius:20px;padding:5px 18px;font-size:13px;font-weight:600;}
 
 /* CARDS */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;max-width:1100px;margin:0 auto 60px;}
-.card{background:white;border:1.5px solid #f0f0f0;border-radius:22px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.06);transition:all 0.3s;animation:cardIn 0.4s ease both;}
-@keyframes cardIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;margin-bottom:60px;}
+.card{background:white;border:1.5px solid #f0f0f0;border-radius:22px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.06);transition:all 0.3s;animation:cin .4s ease both;}
+@keyframes cin{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .card:hover{transform:translateY(-5px);}
-.card-bar{height:5px;}
-.card-top{padding:13px 15px 0;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
-.cat-badge{padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;display:inline-block;}
-.fee-badge{padding:3px 9px;border-radius:8px;font-size:11px;font-weight:600;display:inline-block;margin-top:5px;}
-.free-fee{background:rgba(5,150,105,0.1);color:#059669;}
-.paid-fee{background:rgba(255,107,53,0.1);color:#ff6b35;}
-.save-btn{background:none;border:1.5px solid #eee;border-radius:9px;padding:5px 8px;cursor:pointer;font-size:14px;transition:all 0.2s;flex-shrink:0;}
-.save-btn.saved{border-color:#f59e0b;color:#f59e0b;}
-.card-body{padding:11px 15px 15px;}
-.card-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;line-height:1.3;margin-bottom:11px;color:var(--text);}
+.cbar{height:5px;}
+.ctop{padding:13px 15px 0;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+.cbadge{padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;display:inline-block;}
+.cfee{padding:3px 9px;border-radius:8px;font-size:11px;font-weight:600;display:inline-block;margin-top:5px;}
+.free{background:rgba(5,150,105,0.1);color:#059669;}
+.paid{background:rgba(255,107,53,0.1);color:#ff6b35;}
+.savebtn{background:none;border:1.5px solid #eee;border-radius:9px;padding:5px 8px;cursor:pointer;font-size:14px;transition:all .2s;flex-shrink:0;}
+.savebtn.sv{border-color:#f59e0b;color:#f59e0b;}
+.cbody{padding:11px 15px 15px;}
+.ctitle{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;line-height:1.3;margin-bottom:11px;}
 .meta{display:flex;flex-direction:column;gap:5px;margin-bottom:10px;}
-.meta-row{display:flex;align-items:flex-start;gap:6px;font-size:12px;color:#666;}
-.meta-icon{flex-shrink:0;}
+.mr{display:flex;align-items:flex-start;gap:6px;font-size:12px;color:#666;}
+.mi{flex-shrink:0;}
 .desc{font-size:12px;color:#888;line-height:1.7;margin-bottom:10px;padding:9px 11px;background:#fafafa;border-radius:10px;}
-.highlight{border-radius:9px;padding:7px 11px;font-size:12px;margin-bottom:10px;font-weight:500;}
-.contact-box{background:#f9f9f9;border:1px solid #eee;border-radius:11px;padding:10px 12px;margin-bottom:11px;}
-.contact-title{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
-.contact-row{display:flex;align-items:center;gap:6px;font-size:11px;color:#555;margin-bottom:4px;}
-.contact-row:last-child{margin-bottom:0;}
-.contact-row a{text-decoration:none;font-weight:500;}
-.no-contact{color:#ccc;font-style:italic;}
-.card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:9px;border-top:1px solid #f5f5f5;}
-.grade-tag{font-size:10px;color:#aaa;background:#f5f5f5;border-radius:8px;padding:3px 8px;}
-.level-tag{font-size:11px;font-weight:600;}
+.hl{border-radius:9px;padding:7px 11px;font-size:12px;margin-bottom:10px;font-weight:500;}
+.cbox{background:#f9f9f9;border:1px solid #eee;border-radius:11px;padding:10px 12px;margin-bottom:11px;}
+.ctag{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
+.crow{display:flex;align-items:center;gap:6px;font-size:11px;color:#555;margin-bottom:4px;}
+.crow a{text-decoration:none;font-weight:500;}
+.na{color:#ccc;font-style:italic;}
+.cfoot{display:flex;align-items:center;justify-content:space-between;padding-top:9px;border-top:1px solid #f5f5f5;}
+.gtag{font-size:10px;color:#aaa;background:#f5f5f5;border-radius:8px;padding:3px 8px;}
+.ltag{font-size:11px;font-weight:600;}
 
 /* ERROR */
-.error-box{background:#fff5f5;border:1.5px solid #fca5a5;border-radius:16px;padding:24px;max-width:600px;margin:20px auto;text-align:center;}
-.error-title{color:#dc2626;font-size:16px;font-weight:700;margin-bottom:8px;}
-.error-sub{color:#888;font-size:13px;margin-bottom:16px;}
-.retry-btn{background:linear-gradient(135deg,#dc2626,#f87171);border:none;border-radius:10px;padding:10px 24px;color:white;font-weight:700;cursor:pointer;font-size:14px;}
+.errbox{background:#fff5f5;border:1.5px solid #fca5a5;border-radius:16px;padding:24px;max-width:600px;margin:20px auto;text-align:center;}
+.errtitle{color:#dc2626;font-size:16px;font-weight:700;margin-bottom:6px;}
+.errsub{color:#888;font-size:13px;margin-bottom:16px;line-height:1.6;}
+.retrybtn{background:linear-gradient(135deg,#dc2626,#f87171);border:none;border-radius:10px;padding:10px 24px;color:white;font-weight:700;cursor:pointer;font-size:14px;}
 
 /* WELCOME */
-.welcome{text-align:center;padding:40px 20px 60px;max-width:600px;margin:0 auto;}
-.welcome-icon{font-size:64px;margin-bottom:20px;}
-.welcome-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:10px;}
-.welcome-text{color:#888;font-size:14px;line-height:1.9;}
-
-/* CONTAINER */
-.container{max-width:1100px;margin:0 auto;padding:0 20px;}
+.welcome{text-align:center;padding:40px 20px 60px;max-width:580px;margin:0 auto;}
 
 /* FOOTER */
 footer{background:white;border-top:1px solid #f0f0f0;padding:22px;text-align:center;}
-.footer-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;background:linear-gradient(90deg,#db2777,#7c3aed,#059669);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;}
-.footer-sub{font-size:12px;color:#bbb;font-style:italic;}
+.ftitle{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;background:linear-gradient(90deg,#db2777,#7c3aed,#059669);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;}
+.fsub{font-size:12px;color:#bbb;font-style:italic;}
 
-/* NO RESULTS */
-.no-res{text-align:center;padding:40px;color:#bbb;}
-
-@media(max-width:600px){
-  .pillars{grid-template-columns:repeat(3,1fr);}
-  .tab-btns{grid-template-columns:1fr;}
-  .header{padding:12px 16px;}
-  .panel{padding:18px 16px;}
-}
+.nores{text-align:center;padding:40px;color:#bbb;}
 </style>
 </head>
 <body>
@@ -170,444 +175,433 @@ footer{background:white;border-top:1px solid #f0f0f0;padding:22px;text-align:cen
         <div class="logo-sub">Cultural · Academic · Sports · Events</div>
       </div>
     </div>
-    <div>
-      <div class="mission-tag">"Every Student Has Potential"</div>
-      <div class="mission-sub">Bangalore's Complete Student Event Platform</div>
-    </div>
+    <div class="mission-pill">"Every Student Has Potential"</div>
   </div>
 </div>
+
+<div class="container">
 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-badge">🌟 Mission: Every Student Has Potential</div>
   <div class="hero-title">
-    <span class="c">Cultural.</span> <span class="a">Academic.</span> <span class="s">Sports.</span><br/>
+    <span class="grad-c">Cultural.</span> <span class="grad-a">Academic.</span> <span class="grad-s">Sports.</span><br/>
     Every field. Every student.
   </div>
-  <div class="hero-sub">From AITA Tennis to Bharatanatyam, Math Olympiad to Khelo India — every opportunity in Bangalore with full contact details. Because every student deserves to shine!</div>
+  <div class="hero-sub">From AITA Tennis to Bharatanatyam, Math Olympiad to Khelo India — every opportunity in Bangalore. 100% FREE powered by Google Gemini AI!</div>
+</div>
 
+<!-- SETUP BOX (shown until key entered) -->
+<div class="setup-box" id="setupBox">
+  <div class="free-badge">✅ 100% FREE — No Credit Card Needed!</div>
+  <div class="setup-title">🔑 One-Time Free Setup (2 minutes!)</div>
+  <div class="setup-sub">C.A.S.E uses Google's FREE Gemini AI. You just need a free API key from Google. It takes 2 minutes and costs nothing!</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text">Open a new tab and go to <a href="https://aistudio.google.com/apikey" target="_blank">aistudio.google.com/apikey</a></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text">Sign in with your <strong>Google account</strong> (Gmail)</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text">Click <strong>"Create API Key"</strong> → Copy the key that appears</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-text">Paste your key below and click <strong>"Start C.A.S.E!"</strong></div>
+    </div>
+  </div>
+  <div class="key-input-wrap">
+    <input class="key-input" id="keyInput" type="password" placeholder="AIzaSyDVnnlr3n5wXgxdARcVRDszbozjVC3aR1A"/>
+    <button class="key-btn" onclick="saveKey()">🚀 Start C.A.S.E — It's Free!</button>
+  </div>
+</div>
+
+<!-- MAIN APP (hidden until key entered) -->
+<div id="mainApp" style="display:none">
+
+  <!-- PILLARS -->
   <div class="pillars" id="pillars">
-    <div class="pillar active-c" onclick="setTab('cultural')">
+    <div class="pillar ac" id="p-cultural" onclick="setTab('cultural')">
       <div class="pillar-icon">🎨</div>
       <div class="pillar-name">Cultural</div>
-      <div class="pillar-count" id="c-count">Dance, Music, Art & more</div>
+      <div class="pillar-count" id="pc-cultural">Dance, Music, Art & more</div>
     </div>
-    <div class="pillar" onclick="setTab('academic')">
+    <div class="pillar" id="p-academic" onclick="setTab('academic')">
       <div class="pillar-icon">📚</div>
       <div class="pillar-name">Academic</div>
-      <div class="pillar-count" id="a-count">Olympiads, Quiz & more</div>
+      <div class="pillar-count" id="pc-academic">Olympiads, Quiz & more</div>
     </div>
-    <div class="pillar" onclick="setTab('sports')">
+    <div class="pillar" id="p-sports" onclick="setTab('sports')">
       <div class="pillar-icon">⚽</div>
       <div class="pillar-name">Sports</div>
-      <div class="pillar-count" id="s-count">Tournaments, Camps & more</div>
+      <div class="pillar-count" id="pc-sports">Tournaments, Camps & more</div>
     </div>
   </div>
-</div>
 
-<!-- SEARCH PANEL -->
-<div class="container">
-<div class="panel">
-  <div class="filters">
-    <div>
-      <div class="field-label">🎓 Grade</div>
-      <select id="gradeSelect">
-        <option>All Grades (1-12)</option>
-        <option>Primary (1-5)</option>
-        <option>Middle (6-8)</option>
-        <option>High School (9-10)</option>
-        <option>Senior (11-12)</option>
-      </select>
+  <!-- SEARCH PANEL -->
+  <div class="panel">
+    <div class="filters">
+      <div>
+        <div class="fl">🎓 Grade</div>
+        <select id="gradeSelect">
+          <option>All Grades (1-12)</option>
+          <option>Primary (1-5)</option>
+          <option>Middle (6-8)</option>
+          <option>High School (9-10)</option>
+          <option>Senior (11-12)</option>
+        </select>
+      </div>
+      <div>
+        <div class="fl">🏆 Level</div>
+        <select id="levelSelect">
+          <option>All Levels</option>
+          <option>School Level</option>
+          <option>District Level</option>
+          <option>State Level</option>
+          <option>National Level</option>
+        </select>
+      </div>
+      <div>
+        <div class="fl">📅 When</div>
+        <select id="timeSelect">
+          <option>All Upcoming 2026</option>
+          <option>Summer (Apr-Jun 2026)</option>
+          <option>Q2 2026 (Apr-Jun)</option>
+          <option>Q3 2026 (Jul-Sep)</option>
+          <option>National Level Events</option>
+        </select>
+      </div>
     </div>
-    <div>
-      <div class="field-label">🏆 Level</div>
-      <select id="levelSelect">
-        <option>All Levels</option>
-        <option>School Level</option>
-        <option>District Level</option>
-        <option>State Level</option>
-        <option>National Level</option>
-      </select>
-    </div>
-    <div>
-      <div class="field-label">📅 When</div>
-      <select id="timeSelect">
-        <option>All Upcoming 2026</option>
-        <option>Summer (Apr-Jun 2026)</option>
-        <option>Q2 2026 (Apr-Jun)</option>
-        <option>Q3 2026 (Jul-Sep)</option>
-        <option>National Level Events</option>
-      </select>
+    <button class="sbtn" id="searchBtn" onclick="doSearch()">🌟 Search All C.A.S.E Events — Every Student Has Potential!</button>
+  </div>
+
+  <!-- CHIPS -->
+  <div class="chips" id="chipsRow"></div>
+
+  <!-- LOADING -->
+  <div class="loading" id="loading">
+    <div class="dots"><div class="dot d1"></div><div class="dot d2"></div><div class="dot d3"></div></div>
+    <div class="ltext" id="ltxt">✨ Scanning every opportunity in Bangalore...</div>
+    <div class="prog">
+      <span class="pi" id="pg-cultural">🎨 Cultural</span>
+      <span class="pi" id="pg-academic">📚 Academic</span>
+      <span class="pi" id="pg-sports">⚽ Sports</span>
     </div>
   </div>
-  <button class="search-btn" id="searchBtn" onclick="doSearch()">🌟 Search All C.A.S.E Events — Every Student Has Potential!</button>
-</div>
 
-<!-- CHIPS -->
-<div class="chips" id="chipsRow"></div>
-
-<!-- LOADING -->
-<div class="loading" id="loading">
-  <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
-  <div class="load-text" id="loadText">✨ Scanning every opportunity in Bangalore...</div>
-  <div class="load-progress">
-    <span class="prog-item" id="prog-cultural">🎨 Cultural</span>
-    <span class="prog-item" id="prog-academic">📚 Academic</span>
-    <span class="prog-item" id="prog-sports">⚽ Sports</span>
+  <!-- ERROR -->
+  <div id="errBox" style="display:none">
+    <div class="errbox">
+      <div style="font-size:36px;margin-bottom:12px">⚠️</div>
+      <div class="errtitle" id="errTitle">Search failed</div>
+      <div class="errsub" id="errSub">Please try again</div>
+      <button class="retrybtn" onclick="doSearch()">🔄 Try Again</button>
+    </div>
   </div>
-</div>
 
-<!-- ERROR -->
-<div id="errorBox" style="display:none">
-  <div class="error-box">
-    <div style="font-size:36px;margin-bottom:12px">⚠️</div>
-    <div class="error-title" id="errorTitle">Search failed</div>
-    <div class="error-sub" id="errorSub">Please try again</div>
-    <button class="retry-btn" onclick="doSearch()">🔄 Try Again</button>
+  <!-- SUMMARY -->
+  <div class="summary" id="summary" style="display:none">
+    <div class="sum-title" id="sumTitle">🌟 Events Found</div>
+    <div class="sum-cats" id="sumCats"></div>
   </div>
-</div>
 
-<!-- SUMMARY -->
-<div class="summary" id="summary" style="display:none">
-  <div class="summary-title" id="summaryTitle">🌟 Events Found</div>
-  <div class="summary-cats" id="summaryCats"></div>
-</div>
+  <!-- TABS -->
+  <div class="tabs" id="tabsRow" style="display:none"></div>
 
-<!-- TAB BUTTONS -->
-<div class="tab-btns" id="tabBtns" style="display:none"></div>
+  <!-- RESULTS BAR -->
+  <div class="rbar" id="rbar" style="display:none">
+    <div class="rtitle" id="rtitle"></div>
+    <div class="rcount" id="rcount"></div>
+  </div>
 
-<!-- RESULTS BAR -->
-<div class="results-bar" id="resultsBar" style="display:none">
-  <div class="results-title" id="resultsTitle"></div>
-  <div class="results-count" id="resultsCount"></div>
-</div>
+  <!-- GRID -->
+  <div class="grid" id="evGrid"></div>
 
-<!-- EVENTS GRID -->
-<div class="grid" id="eventsGrid"></div>
+  <!-- WELCOME -->
+  <div class="welcome" id="welcome">
+    <div style="font-size:64px;margin-bottom:20px">🌟</div>
+    <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:10px">Discover Your Opportunity!</div>
+    <div style="color:#888;font-size:14px;line-height:1.9">Select your grade and timeframe, then hit search. C.A.S.E will find every cultural, academic and sports event in Bangalore — because <em style="color:#7c3aed">every student has potential!</em></div>
+  </div>
 
-<!-- WELCOME -->
-<div class="welcome" id="welcome">
-  <div class="welcome-icon">🌟</div>
-  <div class="welcome-title">Discover Your Opportunity!</div>
-  <div class="welcome-text">Select your grade and timeframe above, then search. C.A.S.E will find every cultural, academic and sports event in Bangalore — because <em style="color:#7c3aed">every student has potential!</em></div>
-</div>
+</div><!-- mainApp -->
 
 </div><!-- container -->
 
 <footer>
-  <div class="footer-title">C.A.S.E — Cultural · Academic · Sports · Events</div>
-  <div class="footer-sub">"Every Student Has Potential" · Built for Bangalore Students · Powered by AI</div>
+  <div class="ftitle">C.A.S.E — Cultural · Academic · Sports · Events</div>
+  <div class="fsub">"Every Student Has Potential" · Bangalore · Powered by Google Gemini AI (Free!)</div>
 </footer>
-
 </div>
 
 <script>
-// ── CONFIG ──
-const API_KEY = "sk-ant-api03-udzHD-o-b2AW02LjXjk5zpWe7o39-eNy6kgmIZTmJXgOuoA0qJx01rRFmTGJMHs5B1XVOBjqaerh6H-xq44mYQ-cJYoQQAA"; // 👈 Replace PASTE_YOUR_KEY_HERE with your real key from console.anthropic.com
+// ── STATE ──
+let GEMINI_KEY = localStorage.getItem('case_gemini_key') || '';
+let allEvs = {cultural:[],academic:[],sports:[]};
+let activeTab = 'cultural';
+let activeChip = 'All';
+let saved = {};
+let msgIv;
 
-const LEVEL_ICONS = {"School Level":"🏫","District Level":"🏙️","State Level":"🌟","National Level":"🇮🇳","International Level":"🌍"};
-const CAT_CFG = {
-  cultural:{label:"Cultural",icon:"🎨",color:"#db2777",light:"rgba(219,39,119,0.09)",border:"rgba(219,39,119,0.25)",grad:"linear-gradient(135deg,#db2777,#f472b6)",activeClass:"active-c",chipOn:"on-c"},
-  academic:{label:"Academic",icon:"📚",color:"#7c3aed",light:"rgba(124,58,237,0.09)",border:"rgba(124,58,237,0.25)",grad:"linear-gradient(135deg,#7c3aed,#a78bfa)",activeClass:"active-a",chipOn:"on-a"},
-  sports:  {label:"Sports",icon:"⚽",color:"#059669",light:"rgba(5,150,105,0.09)",border:"rgba(5,150,105,0.25)",grad:"linear-gradient(135deg,#059669,#34d399)",activeClass:"active-s",chipOn:"on-s"},
+const LICONS = {"School Level":"🏫","District Level":"🏙️","State Level":"🌟","National Level":"🇮🇳","International Level":"🌍"};
+const CATS = {
+  cultural:{l:"Cultural",i:"🎨",c:"#db2777",lt:"rgba(219,39,119,0.09)",b:"rgba(219,39,119,0.25)",g:"linear-gradient(135deg,#db2777,#f472b6)",ac:"ac",cc:"cc"},
+  academic:{l:"Academic",i:"📚",c:"#7c3aed",lt:"rgba(124,58,237,0.09)",b:"rgba(124,58,237,0.25)",g:"linear-gradient(135deg,#7c3aed,#a78bfa)",ac:"aa",cc:"ca"},
+  sports:  {l:"Sports",  i:"⚽",c:"#059669",lt:"rgba(5,150,105,0.09)", b:"rgba(5,150,105,0.25)", g:"linear-gradient(135deg,#059669,#34d399)",ac:"as_",cc:"cs"},
 };
-const CHIPS_CFG = {
-  cultural:["All","Dance","Music","Drama","Art & Painting","Singing","Theatre","Photography","Folk Arts","Film Making","Storytelling","Rangoli","Fashion","Stand-up Comedy"],
-  academic:["All","Science Olympiad","Math Olympiad","Quiz","Debate","MUN","Coding","Robotics","Hackathon","Spell Bee","NTSE","KVPY","Leadership","Essay Writing","Geography Olympiad"],
-  sports:  ["All","Cricket","Football","Basketball","Badminton","Tennis (AITA)","Swimming","Athletics","Chess","Kabaddi","Volleyball","Table Tennis","Khelo India","Boxing","Wrestling","Shooting","Archery","Gymnastics","Cycling","Skating","Martial Arts","Summer Camps","NCC"],
+const CHIPS = {
+  cultural:["All","Dance","Music","Drama","Art","Singing","Theatre","Photography","Folk Arts","Film Making","Rangoli","Fashion","Storytelling","Mime"],
+  academic:["All","Science Olympiad","Math Olympiad","Quiz","Debate","MUN","Coding","Robotics","Hackathon","Spell Bee","NTSE","KVPY","Leadership","Essay","Geography Olympiad"],
+  sports:  ["All","Cricket","Football","Basketball","Badminton","Tennis (AITA)","Swimming","Athletics","Chess","Kabaddi","Volleyball","Table Tennis","Khelo India","Boxing","Wrestling","Shooting","Archery","Gymnastics","Summer Camps","NCC","Cycling","Skating","Martial Arts"],
 };
-const LOADING_MSGS = [
+const LMSGS = [
   "✨ Scanning every opportunity in Bangalore...",
   "🎨 Finding cultural competitions & fests...",
-  "📚 Searching academic olympiads & debates...",
-  "⚽ Listing tournaments & Khelo India events...",
+  "📚 Searching academic olympiads...",
+  "⚽ Listing sports tournaments...",
   "🎾 Checking AITA Tennis Championships...",
-  "☀️ Finding summer camps & coaching...",
+  "🏅 Finding Khelo India events...",
   "📞 Gathering contact details...",
-  "🏆 Compiling state & national events...",
   "🌟 Almost ready — Every student has potential!",
 ];
 
 const PROMPTS = {
-  cultural:`Generate 30-40 CULTURAL events for Bangalore school students in 2026. Include ALL of:
-Bharatanatyam competitions (school/state/national), Kathak, Kuchipudi, Mohiniyattam, Odissi dance competitions, Contemporary/Western dance competitions, Carnatic music festivals and competitions, Hindustani music competitions, Western music (instrumental + vocal), Drama and theatre festivals, Rangoli competitions, Art and Painting exhibitions, Folk arts (Yakshagana, folk dance, folk music), Singing competitions (classical, light music, western, filmi), Film making competitions for students, Photography competitions, Storytelling competitions, Fashion Design competitions for students, Cultural Fests by schools and colleges (Christ, Jain, St. Joseph's, National College), Inter-school cultural events, Sahitya competitions (Kannada, Hindi, English poetry/essay), Stand-up comedy for students, Mime competitions, Mono-acting competitions. Include events at school, district, state and national level.`,
-
-  academic:`Generate 30-40 ACADEMIC events for Bangalore school students in 2026. Include ALL of:
-National Science Olympiad (NSO) by SOF, International Mathematics Olympiad (IMO) by SOF, International English Olympiad (IEO), National Cyber Olympiad (NCO), CBSE National Science Exhibition, NTSE (National Talent Search Examination), KVPY (Kishore Vaigyanik Protsahan Yojana), Spell Bee International, Quiz competitions (science/GK/history/current affairs/Kaun Banega Crorepati style), Debate competitions (inter-school, state, national), MUN conferences (Bangalore MUN, JHUMUN, Christ MUN, National MUN), Essay writing competitions, Geography Olympiad, International Astronomy Olympiad, Coding competitions for school students (HackerEarth, CodeChef school, Scratch), Robotics Olympiad (WRO, First LEGO League), Hackathons for school students, Science project competitions and fairs, Language Olympiads (English, Hindi, Kannada, Sanskrit), Leadership programs and workshops (LEAD, Young India), Entrepreneurship competitions for students, Social Science Olympiad, Maths talent search exam, Aryabhata Ganit Challenge. Include online and offline events.`,
-
-  sports:`Generate 35-45 SPORTS events for Bangalore school students in 2026. Include ALL of:
-Cricket: KSCA inter-school cricket, KSCA U-13/U-16/U-19 tournaments, SGFI cricket, district cricket trials, Karnataka state school cricket championship.
-Football: BDFA inter-school football, Subroto Cup, AIFF youth football, Karnataka state school football championship, sports club football tournaments.
-Basketball: school basketball tournaments, BSBA inter-school, Karnataka state basketball championship, 3x3 basketball tournaments.
-AITA Tennis: AITA U-12 National Ranking Tournament Bangalore, AITA U-14 NRT Karnataka, AITA U-16 Championship Series, AITA U-18 NRT, KSLTA Karnataka State Junior Tennis Championship, KSLTA Open tournaments, AITA Super Series Bangalore, AITA Inter-district school tennis.
-Swimming: school swimming competitions, Bangalore District Swimming Championship, Karnataka State Swimming Championship, SGFI swimming meets, SAI aquatics camps.
-Athletics: inter-school athletics meets, Bangalore District Athletics Championship, Karnataka State School Athletics, SGFI athletics, national school games athletics.
-Chess: FIDE rated tournaments Bangalore, Karnataka State Chess Championship, Bangalore District Chess Championship, AICF rated events, All India School Chess, rapid and blitz tournaments, online FIDE rated chess.
-Kabaddi: inter-school kabaddi, district championship, Karnataka state kabaddi, Khelo India kabaddi.
-Badminton: BAI ranking tournaments, Karnataka Badminton Association junior events, inter-school badminton, district and state championships.
-Volleyball: inter-school volleyball, district championship, state volleyball championship.
-Table Tennis: TTFI ranking events, TTFI junior nationals, Karnataka state TT championship, school level TT tournaments.
-Kho-Kho: inter-school kho-kho, state kho-kho championship.
-Wrestling: school wrestling, Karnataka state wrestling, Khelo India wrestling.
-Boxing: school boxing tournament, Karnataka state boxing, Khelo India boxing, SAI boxing camps.
-Shooting: ISSF junior ranking events, Karnataka Rifle Association junior events, Khelo India shooting, SAI shooting academy.
-Archery: school archery, Karnataka archery championship, Khelo India archery, SAI archery camps.
-Gymnastics: school gymnastics, state gymnastics championship, Khelo India gymnastics.
-Cycling: MTB cycling, road cycling for juniors, state cycling championship.
-Skating: roller skating school competitions, state skating championship.
-Martial Arts: Karate state championship, Taekwondo school tournaments, Judo competition.
-Khelo India: Khelo India School Games (all disciplines), Khelo India Youth Games registration, Khelo India Winter Games.
-Summer Camps 2026: KSCA cricket academy summer camp, Bengaluru FC football academy camp, KSLTA tennis summer camp, SAI swimming coaching camp, athletics coaching camp, basketball summer camp, badminton coaching camp, multi-sport summer camp.
-NCC and Adventure: NCC annual training camp, adventure sports camp Karnataka, trekking camp Coorg/Chikmagalur.`
+cultural:`Generate 30-35 CULTURAL student events for Bangalore 2026. Include ALL:
+Bharatanatyam, Kathak, Kuchipudi, Mohiniyattam, Odissi dance competitions, Contemporary/Western dance, Carnatic music festivals, Hindustani music, Western music competitions, Drama and theatre festivals, Art and painting exhibitions, Folk arts (Yakshagana, folk dance), Singing competitions, Film making for students, Photography contests, Rangoli competitions, Storytelling, Fashion design, Cultural fests (Christ/Jain/National College), Inter-school cultural events, Sahitya competitions, Stand-up comedy, Mime, Mono-acting. Mix school/district/state/national levels.`,
+academic:`Generate 30-35 ACADEMIC student events for Bangalore 2026. Include ALL:
+NSO (National Science Olympiad) SOF, IMO (International Math Olympiad) SOF, IEO (International English Olympiad), NCO (National Cyber Olympiad), CBSE Science Exhibition, NTSE, KVPY, Spell Bee International, Quiz competitions (science/GK/history), Debate competitions, MUN conferences (Bangalore MUN, Christ MUN, JHUMUN), Essay writing competitions, Geography Olympiad, Astronomy Olympiad, Coding competitions, Robotics Olympiad (WRO, FLL), Hackathons for school students, Science project fairs, Language olympiads, Leadership programs, Entrepreneurship competitions, Social Science Olympiad, Maths Talent Search, Aryabhata Ganit Challenge. Mix online and offline.`,
+sports:`Generate 35-40 SPORTS events for Bangalore school students in 2026. Include ALL:
+Cricket: KSCA inter-school U-13/U-16/U-19 tournaments, SGFI cricket, Karnataka state school cricket.
+Football: BDFA school football, Subroto Cup, AIFF youth, Karnataka state school football.
+Basketball: BSBA inter-school, Karnataka state basketball, 3x3 basketball.
+AITA Tennis: AITA U-12/U-14/U-16/U-18 National Ranking Tournaments, KSLTA Karnataka State Junior Tennis, AITA Super Series Bangalore, AITA Championship Series.
+Swimming: school swimming meets, Karnataka State Swimming Championship, SAI aquatics.
+Athletics: inter-school meets, Karnataka State School Athletics, SGFI athletics, national school games.
+Chess: FIDE rated Bangalore, Karnataka State Chess Championship, AICF rated, rapid & blitz tournaments.
+Kabaddi, Volleyball, Table Tennis (TTFI), Kho-Kho: school and state level.
+Boxing, Wrestling, Shooting, Archery, Gymnastics: Khelo India discipline events.
+Cycling, Skating, Martial Arts (Karate/Taekwondo/Judo): state level.
+Khelo India: School Games, Youth Games — all sports disciplines by SAI.
+Summer Camps 2026: KSCA cricket academy, Bengaluru FC football, KSLTA tennis, SAI swimming, athletics, basketball, badminton, multi-sport.
+NCC and adventure camps.`
 };
 
-// STATE
-let allEvents = {cultural:[],academic:[],sports:[]};
-let activeTab = 'cultural';
-let activeChip = 'All';
-let savedMap = {};
-let msgInterval;
+// ── INIT ──
+window.onload = () => {
+  if(GEMINI_KEY) {
+    document.getElementById('setupBox').style.display = 'none';
+    document.getElementById('mainApp').style.display = 'block';
+  }
+};
 
-function setTab(tab) {
-  activeTab = tab;
-  activeChip = 'All';
-  renderPillars();
-  renderChips();
-  renderTabBtns();
-  renderResults();
+function saveKey() {
+  const k = document.getElementById('keyInput').value.trim();
+  if(!k || !k.startsWith('AIza')) {
+    alert('Please enter a valid Gemini API key starting with "AIza..."');
+    return;
+  }
+  GEMINI_KEY = k;
+  localStorage.setItem('case_gemini_key', k);
+  document.getElementById('setupBox').style.display = 'none';
+  document.getElementById('mainApp').style.display = 'block';
+  alert('✅ Key saved! You are all set. Now search for events!');
+}
+
+// ── TAB ──
+function setTab(t) {
+  activeTab = t; activeChip = 'All';
+  renderPillars(); renderChips(); renderTabs(); renderResults();
 }
 
 function renderPillars() {
-  ['cultural','academic','sports'].forEach(k=>{
-    const el = document.getElementById(`pillar-${k}`);
+  Object.keys(CATS).forEach(k => {
+    const c = CATS[k];
+    const el = document.getElementById('p-'+k);
     if(!el) return;
-    const c = CAT_CFG[k];
-    const cnt = allEvents[k]?.length||0;
-    el.className = 'pillar' + (activeTab===k?' '+c.activeClass:'');
-    document.getElementById(`p-count-${k}`).textContent = cnt>0?`${cnt} events found`:(k==='cultural'?'Dance, Music, Art & more':k==='academic'?'Olympiads, Quiz & more':'Tournaments, Camps & more');
+    el.className = 'pillar' + (activeTab===k?' '+c.ac:'');
+    const cnt = allEvs[k]?.length||0;
+    document.getElementById('pc-'+k).textContent = cnt>0?`${cnt} events found`:(k==='cultural'?'Dance, Music, Art & more':k==='academic'?'Olympiads, Quiz & more':'Tournaments, Camps & more');
   });
 }
 
 function renderChips() {
-  const c = CAT_CFG[activeTab];
-  const chips = CHIPS_CFG[activeTab];
-  document.getElementById('chipsRow').innerHTML = chips.map(ch=>`
-    <button class="chip ${activeChip===ch?c.chipOn:''}" onclick="setChip('${ch}')">${ch}</button>
-  `).join('');
+  const c = CATS[activeTab];
+  document.getElementById('chipsRow').innerHTML = CHIPS[activeTab].map(ch =>
+    `<button class="chip ${activeChip===ch?c.cc:''}" onclick="setChip('${ch}')">${ch}</button>`
+  ).join('');
 }
 
-function setChip(ch) {
-  activeChip = ch;
-  renderChips();
-  renderResults();
-}
+function setChip(ch) { activeChip=ch; renderChips(); renderResults(); }
 
-function renderTabBtns() {
-  const btns = document.getElementById('tabBtns');
-  btns.innerHTML = Object.entries(CAT_CFG).map(([k,v])=>{
-    const cnt = allEvents[k]?.length||0;
-    const isActive = activeTab===k;
-    return `<button class="tab-btn" onclick="setTab('${k}')" style="background:${isActive?v.grad:'white'};color:${isActive?'white':v.color};border:${isActive?'none':'1.5px solid '+v.border};box-shadow:${isActive?'0 6px 20px '+v.border:'0 2px 8px rgba(0,0,0,0.04)'};">
-      ${v.icon} ${v.label} (${cnt})
-    </button>`;
+function renderTabs() {
+  document.getElementById('tabsRow').innerHTML = Object.entries(CATS).map(([k,v]) => {
+    const cnt = allEvs[k]?.length||0;
+    const on = activeTab===k;
+    return `<button class="tab" onclick="setTab('${k}')" style="background:${on?v.g:'white'};color:${on?'white':v.c};border:${on?'none':'1.5px solid '+v.b};box-shadow:${on?'0 6px 20px '+v.b:'0 2px 8px rgba(0,0,0,0.04)'};">${v.i} ${v.l} (${cnt})</button>`;
   }).join('');
 }
 
 function renderResults() {
-  const c = CAT_CFG[activeTab];
-  const evs = allEvents[activeTab]||[];
-  const filtered = activeChip==='All' ? evs : evs.filter(e=>(e.subCategory||'').toLowerCase().includes(activeChip.toLowerCase())||(e.title||'').toLowerCase().includes(activeChip.toLowerCase()));
+  const c = CATS[activeTab];
+  const evs = allEvs[activeTab]||[];
+  const filtered = activeChip==='All'?evs:evs.filter(e=>(e.subCategory||'').toLowerCase().includes(activeChip.toLowerCase())||(e.title||'').toLowerCase().includes(activeChip.toLowerCase()));
 
-  document.getElementById('resultsBar').style.display='flex';
-  document.getElementById('resultsTitle').textContent = `${c.icon} ${c.label} Events`;
-  document.getElementById('resultsTitle').style.color = '#1a1a2e';
-  const rc = document.getElementById('resultsCount');
-  rc.textContent = `${filtered.length} event${filtered.length!==1?'s':''}`;
-  rc.style.background = c.grad;
+  document.getElementById('rbar').style.display='flex';
+  document.getElementById('rtitle').textContent=`${c.i} ${c.l} Events`;
+  const rc=document.getElementById('rcount');
+  rc.textContent=`${filtered.length} event${filtered.length!==1?'s':''}`;
+  rc.style.background=c.g;
 
-  if(filtered.length===0){
-    document.getElementById('eventsGrid').innerHTML = '<div class="no-res">No events match this filter. Try "All"!</div>';
-    return;
-  }
+  if(filtered.length===0){document.getElementById('evGrid').innerHTML='<div class="nores">No events match this filter. Try "All"!</div>';return;}
 
-  document.getElementById('eventsGrid').innerHTML = filtered.map((ev,i)=>{
-    const isFree = (ev.fee||'').toLowerCase().includes('free');
-    const lvlIc = LEVEL_ICONS[ev.level]||'🏆';
-    const dateStr = ev.endDate&&ev.endDate!==ev.date?`${ev.date} – ${ev.endDate}`:ev.date;
-    const hp = ev.contactPhone&&ev.contactPhone!=='null'&&ev.contactPhone!==null&&ev.contactPhone!=='';
-    const he = ev.contactEmail&&ev.contactEmail!=='null'&&ev.contactEmail!==null&&ev.contactEmail!=='';
-    const hw = ev.contactWebsite&&ev.contactWebsite!=='null'&&ev.contactWebsite!==null&&ev.contactWebsite!=='';
-    const hc = ev.contactPerson&&ev.contactPerson!=='null'&&ev.contactPerson!==null&&ev.contactPerson!=='';
-    const sid = `saved-${ev.id||i}`;
-    return `
-    <div class="card" style="animation-delay:${i*0.04}s">
-      <div class="card-bar" style="background:${c.grad}"></div>
-      <div class="card-top">
+  document.getElementById('evGrid').innerHTML = filtered.map((ev,i)=>{
+    const isFree=(ev.fee||'').toLowerCase().includes('free');
+    const lvl=LICONS[ev.level]||'🏆';
+    const ds=ev.endDate&&ev.endDate!==ev.date?`${ev.date} – ${ev.endDate}`:ev.date;
+    const hp=ev.contactPhone&&ev.contactPhone!='null'&&ev.contactPhone!='';
+    const he=ev.contactEmail&&ev.contactEmail!='null'&&ev.contactEmail!='';
+    const hw=ev.contactWebsite&&ev.contactWebsite!='null'&&ev.contactWebsite!='';
+    const hc=ev.contactPerson&&ev.contactPerson!='null'&&ev.contactPerson!='';
+    const sid=`sv${i}`;
+    return `<div class="card" style="animation-delay:${i*.04}s">
+      <div class="cbar" style="background:${c.g}"></div>
+      <div class="ctop">
         <div>
-          <span class="cat-badge" style="background:${c.light};color:${c.color};border:1px solid ${c.border}">${c.icon} ${ev.subCategory||c.label}</span><br/>
-          <span class="fee-badge ${isFree?'free-fee':'paid-fee'}">${isFree?'✅ Free':ev.fee}</span>
+          <span class="cbadge" style="background:${c.lt};color:${c.c};border:1px solid ${c.b}">${c.i} ${ev.subCategory||c.l}</span><br/>
+          <span class="cfee ${isFree?'free':'paid'}">${isFree?'✅ Free':ev.fee}</span>
         </div>
-        <button class="save-btn" id="${sid}" onclick="toggleSave('${ev.id||i}','${sid}')">🔖</button>
+        <button class="savebtn ${saved[i]?'sv':''}" id="${sid}" onclick="toggleSave(${i},'${sid}')">${saved[i]?'⭐':'🔖'}</button>
       </div>
-      <div class="card-body">
-        <div class="card-title">${ev.title}</div>
+      <div class="cbody">
+        <div class="ctitle">${ev.title}</div>
         <div class="meta">
-          <div class="meta-row"><span class="meta-icon">📅</span><span>${dateStr}</span></div>
-          <div class="meta-row"><span class="meta-icon">📍</span><span>${ev.location}</span></div>
-          <div class="meta-row"><span class="meta-icon">🏛️</span><span>${ev.organizer}</span></div>
-          <div class="meta-row"><span class="meta-icon">${lvlIc}</span><span>${ev.level}</span></div>
-          <div class="meta-row"><span class="meta-icon">⏰</span><span>Register by: <strong>${ev.registrationDeadline}</strong></span></div>
-          <div class="meta-row"><span class="meta-icon">🏆</span><span>${ev.prizeMoney||'Medals & Certificates'}</span></div>
+          <div class="mr"><span class="mi">📅</span><span>${ds}</span></div>
+          <div class="mr"><span class="mi">📍</span><span>${ev.location}</span></div>
+          <div class="mr"><span class="mi">🏛️</span><span>${ev.organizer}</span></div>
+          <div class="mr"><span class="mi">${lvl}</span><span>${ev.level}</span></div>
+          <div class="mr"><span class="mi">⏰</span><span>Register by: <strong>${ev.registrationDeadline}</strong></span></div>
+          <div class="mr"><span class="mi">🏆</span><span>${ev.prizeMoney||'Medals & Certificates'}</span></div>
         </div>
-        <div class="desc" style="border-left:3px solid ${c.border}">${ev.description}</div>
-        ${ev.highlights?`<div class="highlight" style="background:${c.light};border:1px solid ${c.border};color:${c.color}">✨ ${ev.highlights}</div>`:''}
-        <div class="contact-box">
-          <div class="contact-title" style="color:${c.color}">📞 Contact Details</div>
-          ${hc?`<div class="contact-row">👤 <span>${ev.contactPerson}</span></div>`:''}
-          <div class="contact-row">📱 ${hp?`<a href="tel:${ev.contactPhone}" style="color:${c.color}">${ev.contactPhone}</a>`:'<span class="no-contact">Not available</span>'}</div>
-          <div class="contact-row">✉️ ${he?`<a href="mailto:${ev.contactEmail}" style="color:${c.color}">${ev.contactEmail}</a>`:'<span class="no-contact">Not available</span>'}</div>
-          <div class="contact-row">🌐 ${hw?`<a href="${ev.contactWebsite}" target="_blank" style="color:${c.color}">${ev.contactWebsite}</a>`:'<span class="no-contact">Not available</span>'}</div>
+        <div class="desc" style="border-left:3px solid ${c.b}">${ev.description}</div>
+        ${ev.highlights?`<div class="hl" style="background:${c.lt};border:1px solid ${c.b};color:${c.c}">✨ ${ev.highlights}</div>`:''}
+        <div class="cbox">
+          <div class="ctag" style="color:${c.c}">📞 Contact Details</div>
+          ${hc?`<div class="crow">👤 <span>${ev.contactPerson}</span></div>`:''}
+          <div class="crow">📱 ${hp?`<a href="tel:${ev.contactPhone}" style="color:${c.c}">${ev.contactPhone}</a>`:'<span class="na">Not available</span>'}</div>
+          <div class="crow">✉️ ${he?`<a href="mailto:${ev.contactEmail}" style="color:${c.c}">${ev.contactEmail}</a>`:'<span class="na">Not available</span>'}</div>
+          <div class="crow">🌐 ${hw?`<a href="${ev.contactWebsite}" target="_blank" style="color:${c.c}">${ev.contactWebsite}</a>`:'<span class="na">Not available</span>'}</div>
         </div>
-        <div class="card-footer">
-          <span class="grade-tag">🎓 ${ev.grades}</span>
-          <span class="level-tag" style="color:${c.color}">${lvlIc} ${ev.level}</span>
+        <div class="cfoot">
+          <span class="gtag">🎓 ${ev.grades}</span>
+          <span class="ltag" style="color:${c.c}">${lvl} ${ev.level}</span>
         </div>
       </div>
     </div>`;
   }).join('');
 }
 
-function toggleSave(id, btnId) {
-  savedMap[id] = !savedMap[id];
-  const btn = document.getElementById(btnId);
-  if(btn){ btn.textContent = savedMap[id]?'⭐':'🔖'; btn.className = 'save-btn'+(savedMap[id]?' saved':''); }
-}
+function toggleSave(i,sid){saved[i]=!saved[i];const b=document.getElementById(sid);if(b){b.className='savebtn'+(saved[i]?' sv':'');b.textContent=saved[i]?'⭐':'🔖';}}
 
-async function callAPI(prompt) {
-  const res = await fetch('https://api.anthropic.com/v1/messages',{
+// ── GEMINI API CALL ──
+async function callGemini(prompt) {
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_KEY}`;
+  const res = await fetch(url, {
     method:'POST',
-    headers:{
-      'Content-Type':'application/json',
-      'x-api-key':API_KEY,
-      'anthropic-version':'2023-06-01',
-      'anthropic-dangerous-direct-browser-access':'true'
-    },
-    body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:8000,messages:[{role:'user',content:prompt}]})
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      contents:[{parts:[{text:prompt}]}],
+      generationConfig:{temperature:0.7,maxOutputTokens:8000}
+    })
   });
-  if(!res.ok){const ed=await res.json().catch(()=>({}));throw new Error('HTTP '+res.status+': '+(ed?.error?.message||'Check API key'));}
-  const data = await res.json();
-  if(data.error) throw new Error('API: '+data.error.message);
-  const text = (data.content||[]).map(b=>b.text||'').join('').trim();
-  const s=text.indexOf('['), e=text.lastIndexOf(']');
-  if(s===-1||e===-1) throw new Error('Invalid JSON response');
+  if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error('HTTP '+res.status+': '+(e?.error?.message||'Check API key'));}
+  const data=await res.json();
+  if(data.error) throw new Error('Gemini: '+data.error.message);
+  const text=data.candidates?.[0]?.content?.parts?.[0]?.text||'';
+  const s=text.indexOf('['),e=text.lastIndexOf(']');
+  if(s===-1||e===-1) throw new Error('Could not parse response. Try again!');
   return JSON.parse(text.slice(s,e+1));
 }
 
-function makePrompt(cat, grade, level, timing) {
+function makePrompt(cat,grade,level,timing){
   return `${PROMPTS[cat]}
 
 FILTERS: Grade=${grade}, Level=${level}, Timing=${timing}
 
-Use REAL Bangalore venues: Kanteerava Stadium, KSLTA Tennis Complex Cubbon Park, IISc Bangalore, NIMHANS Convention Centre, Palace Grounds, Koramangala Indoor Stadium, KSCA M Chinnaswamy Stadium, National College Grounds, Bangalore University, Jain University, Christ University.
+Use REAL Bangalore venues: Kanteerava Stadium, KSLTA Tennis Complex Cubbon Park, IISc Bangalore, NIMHANS Convention Centre, Palace Grounds, Koramangala Indoor Stadium, KSCA M Chinnaswamy Stadium, National College Grounds, Bangalore University, Jain University, Christ University, National College Basavanagudi.
 
-Contact details: include where realistic (phone: 080-XXXXXXXX or +91-9XXXXXXXXX format, email, website). Use null where genuinely unknown.
-Fees: Free for government/Khelo India/SOF events, realistic amounts for others.
+Include realistic contact details where available: phone (080-XXXXXXXX or +91-9XXXXXXXXX), email, website. Use null where unknown.
+Fees: Free for Khelo India/SOF/government events. ₹100-₹2000 for private events.
 
-Return ONLY a raw JSON array. Each object must have EXACTLY:
-id (unique string), title, category ("${cat}"), subCategory (specific type), date (e.g. "April 15, 2026"), endDate, location, organizer, grades, level (School Level/District Level/State Level/National Level/International Level), fee, description (2 sentences), registrationDeadline, highlights, contactPhone (or null), contactEmail (or null), contactWebsite (or null), contactPerson (or null), prizeMoney
+Return ONLY a raw JSON array. Each item MUST have:
+id, title, category ("${cat}"), subCategory, date, endDate, location, organizer, grades, level (School Level/District Level/State Level/National Level/International Level), fee, description (2 sentences), registrationDeadline, highlights, contactPhone (or null), contactEmail (or null), contactWebsite (or null), contactPerson (or null), prizeMoney
 
-Start with [ end with ]. No markdown. No extra text.`;
+Start with [ end with ]. Absolutely no other text.`;
 }
 
-async function doSearch() {
-  const grade = document.getElementById('gradeSelect').value;
-  const level = document.getElementById('levelSelect').value;
-  const timing = document.getElementById('timeSelect').value;
+async function doSearch(){
+  if(!GEMINI_KEY){alert('Please enter your free Gemini API key first!');return;}
+  const grade=document.getElementById('gradeSelect').value;
+  const level=document.getElementById('levelSelect').value;
+  const timing=document.getElementById('timeSelect').value;
 
-  allEvents = {cultural:[],academic:[],sports:[]};
+  allEvs={cultural:[],academic:[],sports:[]};
   document.getElementById('welcome').style.display='none';
-  document.getElementById('errorBox').style.display='none';
+  document.getElementById('errBox').style.display='none';
   document.getElementById('summary').style.display='none';
-  document.getElementById('tabBtns').style.display='none';
-  document.getElementById('resultsBar').style.display='none';
-  document.getElementById('eventsGrid').innerHTML='';
+  document.getElementById('tabsRow').style.display='none';
+  document.getElementById('rbar').style.display='none';
+  document.getElementById('evGrid').innerHTML='';
   document.getElementById('loading').classList.add('show');
   document.getElementById('searchBtn').disabled=true;
   document.getElementById('searchBtn').textContent='⏳ Searching...';
   document.getElementById('chipsRow').innerHTML='';
-
-  ['cultural','academic','sports'].forEach(k=>{
-    document.getElementById(`prog-${k}`).className='prog-item';
-  });
+  ['cultural','academic','sports'].forEach(k=>{document.getElementById('pg-'+k).className='pi';});
 
   let mi=0;
-  clearInterval(msgInterval);
-  msgInterval=setInterval(()=>{ mi=(mi+1)%LOADING_MSGS.length; document.getElementById('loadText').textContent=LOADING_MSGS[mi]; },1200);
+  clearInterval(msgIv);
+  msgIv=setInterval(()=>{mi=(mi+1)%LMSGS.length;document.getElementById('ltxt').textContent=LMSGS[mi];},1200);
 
-  const cats = ['cultural','academic','sports'];
-  let hasError = false;
-
-  for(const cat of cats){
-    document.getElementById(`prog-${cat}`).className='prog-item active';
-    try {
-      const evs = await callAPI(makePrompt(cat,grade,level,timing));
-      allEvents[cat] = Array.isArray(evs)?evs:[];
-      document.getElementById(`prog-${cat}`).className='prog-item done';
-      document.getElementById(`prog-${cat}`).textContent = CAT_CFG[cat].icon+' '+CAT_CFG[cat].label+' ✓ ('+allEvents[cat].length+')';
-    } catch(e) {
-      document.getElementById(`prog-${cat}`).className='prog-item';
-      document.getElementById(`prog-${cat}`).textContent = CAT_CFG[cat].icon+' '+CAT_CFG[cat].label+' ✗';
-      hasError = true;
+  let hasErr=false;
+  for(const cat of ['cultural','academic','sports']){
+    document.getElementById('pg-'+cat).className='pi act';
+    try{
+      const evs=await callGemini(makePrompt(cat,grade,level,timing));
+      allEvs[cat]=Array.isArray(evs)?evs:[];
+      document.getElementById('pg-'+cat).className='pi done';
+      document.getElementById('pg-'+cat).textContent=CATS[cat].i+' '+CATS[cat].l+' ✓ ('+allEvs[cat].length+')';
+    }catch(e){
+      document.getElementById('pg-'+cat).className='pi';
+      document.getElementById('pg-'+cat).textContent=CATS[cat].i+' '+CATS[cat].l+' ✗';
+      console.error(cat,e);
+      hasErr=true;
     }
   }
 
-  clearInterval(msgInterval);
+  clearInterval(msgIv);
   document.getElementById('loading').classList.remove('show');
   document.getElementById('searchBtn').disabled=false;
   document.getElementById('searchBtn').textContent='🌟 Search All C.A.S.E Events — Every Student Has Potential!';
 
-  const total = allEvents.cultural.length+allEvents.academic.length+allEvents.sports.length;
-
+  const total=allEvs.cultural.length+allEvs.academic.length+allEvs.sports.length;
   if(total===0){
-    document.getElementById('errorTitle').textContent='No events found';
-    document.getElementById('errorSub').textContent=e.message;
-    document.getElementById('errorBox').style.display='block';
+    document.getElementById('errTitle').textContent='No events found';
+    document.getElementById('errSub').textContent='Please check your Gemini API key and try again. Make sure it starts with "AIza"';
+    document.getElementById('errBox').style.display='block';
     return;
   }
 
-  // SUMMARY
-  document.getElementById('summaryTitle').textContent=`🌟 ${total} Events Found Across All Categories`;
-  document.getElementById('summaryCats').innerHTML=Object.entries(CAT_CFG).map(([k,v])=>`
-    <div class="sum-cat" style="background:${v.light};border:1px solid ${v.border};color:${v.color}">${v.icon} ${v.label}: ${allEvents[k].length}</div>
-  `).join('');
+  document.getElementById('sumTitle').textContent=`🌟 ${total} Events Found Across All Categories!`;
+  document.getElementById('sumCats').innerHTML=Object.entries(CATS).map(([k,v])=>
+    `<div class="sc" style="background:${v.lt};border:1px solid ${v.b};color:${v.c}">${v.i} ${v.l}: ${allEvs[k].length}</div>`
+  ).join('');
   document.getElementById('summary').style.display='flex';
-  document.getElementById('tabBtns').style.display='grid';
-
-  renderPillars();
-  renderChips();
-  renderTabBtns();
-  renderResults();
-
-  if(hasError){
-    const eb = document.createElement('div');
-    eb.style.cssText='background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:12px 16px;margin:12px auto;max-width:1100px;font-size:13px;color:#92400e;';
-    eb.textContent='⚠️ Some categories may have partial results. Try searching again for more events.';
-    document.getElementById('summary').after(eb);
-    setTimeout(()=>eb.remove(),5000);
-  }
+  document.getElementById('tabsRow').style.display='grid';
+  renderPillars(); renderChips(); renderTabs(); renderResults();
 }
-
-// Init pillars with correct IDs
-document.addEventListener('DOMContentLoaded',()=>{
-  const pillarsEl = document.getElementById('pillars');
-  pillarsEl.innerHTML = Object.entries(CAT_CFG).map(([k,v])=>`
-    <div class="pillar ${k==='cultural'?v.activeClass:''}" id="pillar-${k}" onclick="setTab('${k}')">
-      <div class="pillar-icon">${v.icon}</div>
-      <div class="pillar-name">${v.label}</div>
-      <div class="pillar-count" id="p-count-${k}">${k==='cultural'?'Dance, Music, Art & more':k==='academic'?'Olympiads, Quiz & more':'Tournaments, Camps & more'}</div>
-    </div>
-  `).join('');
-});
 </script>
 </body>
 </html>
