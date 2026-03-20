@@ -215,7 +215,7 @@ footer{background:white;border-top:1px solid #f0f0f0;padding:22px;text-align:cen
     </div>
   </div>
   <div class="key-input-wrap">
-    <input class="key-input" id="keyInput" type="password" placeholder="AIzaSyDVnnlr3n5wXgxdARcVRDszbozjVC3aR1A"/>
+    <input class="key-input" id="keyInput" type="password" placeholder="Paste your free Gemini API key here (AIza...)"/>
     <button class="key-btn" onclick="saveKey()">🚀 Start C.A.S.E — It's Free!</button>
   </div>
 </div>
@@ -340,7 +340,7 @@ footer{background:white;border-top:1px solid #f0f0f0;padding:22px;text-align:cen
 
 <script>
 // ── STATE ──
-let GEMINI_KEY = localStorage.getItem('case_gemini_key') || '';
+let GEMINI_KEY = '';
 let allEvs = {cultural:[],academic:[],sports:[]};
 let activeTab = 'cultural';
 let activeChip = 'All';
@@ -392,9 +392,16 @@ NCC and adventure camps.`
 
 // ── INIT ──
 window.onload = () => {
-  if(GEMINI_KEY) {
+  localStorage.removeItem('case_gemini_key'); // clear old keys
+  const stored = sessionStorage.getItem('case_gemini_key') || '';
+  if(stored && stored.startsWith('AIza')) {
+    GEMINI_KEY = stored;
     document.getElementById('setupBox').style.display = 'none';
     document.getElementById('mainApp').style.display = 'block';
+  } else {
+    GEMINI_KEY = '';
+    document.getElementById('setupBox').style.display = 'block';
+    document.getElementById('mainApp').style.display = 'none';
   }
 };
 
@@ -405,7 +412,7 @@ function saveKey() {
     return;
   }
   GEMINI_KEY = k;
-  localStorage.setItem('case_gemini_key', k);
+  sessionStorage.setItem('case_gemini_key', k); localStorage.removeItem('case_gemini_key');
   document.getElementById('setupBox').style.display = 'none';
   document.getElementById('mainApp').style.display = 'block';
   alert('✅ Key saved! You are all set. Now search for events!');
